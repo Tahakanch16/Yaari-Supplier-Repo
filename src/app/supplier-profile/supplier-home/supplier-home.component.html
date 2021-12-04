@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- logo -->
+    <link rel="icon" type="image/png" href="images/fav_icon.png"/>
+
+    <title>Yaari Supplier</title>
+
+    <!-- Material Icons -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
+
+    <!-- Style CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+  </head>
+<body>
+
+<!-- Dashboard -->
+<!-- Navbar -->
+<app-supplier-navbar></app-supplier-navbar>
+
+
+<section class="dashboard_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="dash_content_sec py-5">
+          <div class="row mx-0 pt-5">
+            <div class="col-lg-12 my-3 text-center">
+              <a routerLink="/upload_product_catalogue" class="d-flex btn-theme w-100 py-4 font-20 font-500 text-center text-decoration-none justify-content-center">
+                <span class="material-icons dash_icons mr-2">upload_file</span>
+                Upload Product Catalogue
+              </a>
+            </div>
+            <div class="col-lg-12 my-3 text-center">
+              <a routerLink="/add_product_specifiaction/catalogue_list" class="d-flex btn-theme w-100 py-4 font-20 font-500 text-center text-decoration-none justify-content-center">
+                <span class="material-icons dash_icons mr-2">add</span>
+                Update Product Specification
+              </a>
+            </div>
+            <div class="col-lg-12 my-3 text-center">
+              <a routerLink="/dashboard" class="d-flex btn-theme w-100 py-4 font-20 font-500 text-center text-decoration-none justify-content-center">
+                <span class="material-icons dash_icons mr-2">dashboard</span>
+                Dashboard
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard End -->
+
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- ////////// Owl Slider JS ////// -->
+<script src="assets/js/owl.carousel.min.js"></script>
+
+</html>

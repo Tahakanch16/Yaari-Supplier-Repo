@@ -1,0 +1,115 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light custom_navbar">
+    <div class="container-fluid">
+      <div class="d-inline-block w-auto">
+        <a class="navbar-brand float-left" [routerLink]="['/app/home']">
+          <img src="assets/images/logo1.png" width="30" height="30" class="d-inline-block img-fluid align-top" alt="">
+        </a>
+        <h4 class=" ml-4 float-left my-4 mb-0 text-dark title_main position-relative mat-display-1">
+         {{supplier_name}}
+        </h4>
+      </div>
+      <div class="nav_right_optn_al float-right shift-right">
+        <ul class="p-0 m-0" style="list-style-type: none;">
+          <li class="float-left px-3">
+            <a  [routerLink]="['/app/contact']" class="font-500 font-18 text-dark text-decoration-none">
+              Contact us
+            </a>
+            <!-- <router-outlet></router-outlet> -->
+          </li>
+          <li class="float-left px-3">
+            <!-- <a href="#" class="btn-theme-border px-4 py-2 font-500 font-18 text-decoration-none" style="border-radius: 100px;">
+              Log out
+            </a> -->
+            <button mat-raised-button (click)="logout()" class="btn-theme-border font-500 font-18 text-decoration-none" style="border-radius: 100px;">Logout</button>
+          </li>
+          <li class="float-left px-3">
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span class="menuToggle__span"></span>
+              <span class="menuToggle__span"></span>
+              <span class="menuToggle__span"></span>
+              <ul id="menu">
+                <li class="profile_in_side_menu menu_li">
+                  <a [routerLink]="['/app/profile']" class="nav-links">
+                    <div class="profile_in_side_menu_pic float-left mr-2">
+                      <img src="assets/images/user_img.png" class="img-fluid">
+                    </div>
+                    <h4 class="font-600 text-light">
+                      {{supplier_name}} 
+                      <span class="text-light d-block font-400 mt-1 font-18">
+                        View Profile
+                      </span>
+                    </h4>
+                  </a>
+                </li>
+                <li class="menu_li">
+                  <a [routerLink]="['/app/home']" class="nav-links text-light font-400 font-18">
+                    Home
+                  </a>
+                </li>
+                <li class="menu_li">
+                  <a [routerLink]="['/app/upload']" class="nav-links text-light font-400 font-18">
+                    Upload Product Catalogue
+                  </a>
+                </li>
+                <!-- <li class="menu_li">
+                  <a routerLink="/add_product_specifiaction/catalogue_list" class="nav-links text-light font-400 font-18">
+                    Update Product Specification
+                  </a>
+                </li> -->
+                <li class="menu_li">
+                  <a routerLink="/app/change-password" class="nav-links text-light font-400 font-18">
+                    Change Password
+                  </a>
+                </li>
+                <!-- <li class="side_menu_dash_collapse_li menu_li">
+                  <a class="nav-links text-light font-400 font-18 collapsed" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Dashboard
+                    <span class="material-icons ml-1">expand_more</span>
+                  </a>                    
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                      <a href="payments.html" class="text-primary font-16 font-400 d-block">
+                        Payments
+                      </a>
+                      <a href="catalogue_status.html" class="text-primary font-16 font-400 d-block">
+                        Catalogue Status
+                      </a>
+                      <a href="ratings_reviews.html" class="text-primary font-16 font-400 d-block">
+                        Ratings & Reviews
+                      </a>
+                      <a href="quality_scorecard.html" class="text-primary font-16 font-400 d-block">
+                        Quality Scorecsrd
+                      </a>
+                      <a href="exchange_returns.html" class="text-primary font-16 font-400 d-block">
+                        Exchange & Returns
+                      </a>
+                    </div>
+                  </div>
+                </li> -->
+                <li class="side_menu_dash_collapse_li menu_li">  
+                  <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                      <mat-panel-title class="nav-links text-primary font-400 font-18">
+                        Dashboard
+                      </mat-panel-title>
+                      </mat-expansion-panel-header>
+                        <div class="card card-body">
+                         <p><a [routerLink]="['/app/dashboard/payment']" class="text-primary font-16 font-400 d-block">Payments</a></p>
+                         <p><a [routerLink]="['/app/dashboard/catalogue-status']" class="text-primary font-16 font-400 d-block">Catalogue Status</a></p>
+                         <p><a [routerLink]="['/app/dashboard/rating-review']" class="text-primary font-16 font-400 d-block">Ratings & Reviews</a></p>
+                         <p><a [routerLink]="['/app/dashboard/quality']" class="text-primary font-16 font-400 d-block">Quality Scorecard</a></p>
+                         <p><a [routerLink]="['/app/dashboard/exchange']" class="text-primary font-16 font-400 d-block">Exchange & Returns</a></p>
+                        </div>
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

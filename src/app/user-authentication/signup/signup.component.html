@@ -1,0 +1,247 @@
+<!-- 
+<app-navbar></app-navbar>
+
+<section class="sing_in_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="sing_in_sec_form">
+          <div class="main_title_dv d-inline-block py-5 w-100">
+            <h1 class="font-600 mb-4 text-dark title_main position-relative d-inline-block">
+              Register
+            </h1>
+          </div>
+          <form [formGroup]="registrationForm" (submit)="supplierRegister()">
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark font-18">Business Name</label>
+              <input type="text" class="form-control p-3" formControlName="bussinessName" 
+              (keyup)="validateFormField('bussinessName')" placeholder="Enter Your Business Name">
+            </div>
+            <div class="form-group mb-5" >
+              <label class="font-500 text-dark font-18 mb-3">Register As</label>
+              <div class="row mx-0">
+                <div class="form-check mr-3">
+                  <input class="form-check-input" type="radio" formControlName="registerAsType"
+                   name="registerAsType" id="retailer" value="retailer">
+                  <label class="form-check-label font-400 font-18" for="retailer">
+                    Retailer
+                  </label>
+                </div>
+                <div class="form-check mr-3">
+                  <input class="form-check-input" type="radio" formControlName="registerAsType" name="registerAsType" id="manufacturer" value="manufacturer">
+                  <label class="form-check-label font-400 font-18" for="manufacturer">
+                    Manufacturer
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="registerAsType" name="registerAsType" id="wholesaler" value="wholesaler">
+                  <label class="form-check-label font-400 font-18" for="wholesaler">
+                    Wholesaler
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark w-100 font-18">Email ID</label>
+              <div class="row mx-0">
+                <div class="col-lg-7 pl-0 pr-2">
+                  <input type="text" class="form-control p-3" formControlName="emailId" 
+                  (keyup)="validateFormField('emailId')" placeholder="Enter Your Email ID">
+                </div>
+                <div class="col-lg-5 pr-0 pl-2">
+                  <button type="submit" class="btn btn-theme w-100 px-2 w-50 py-3 font-16">Verify Email</button>
+                </div>
+              </div>              
+            </div>
+            <div class="form-group mb-5 ">
+              <label class="font-500 text-dark font-18">Password</label>
+              <input [type]="passType" class="form-control p-3" formControlName="password" 
+              (keyup)="validateFormField('password')" placeholder="Enter Your password">
+              <span class="material-icons pass_hide_icons" *ngIf="showPassword" (click)="showPass('show')">visibility</span>
+              <span class="material-icons pass_hide_icons" *ngIf="!showPassword" (click)="showPass('hide')">visibility_off</span>            
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark font-18">Confirm Password</label>
+              <input [type]="cpassType" class="form-control p-3" formControlName="confirmPassword" 
+              (keyup)="validateFormField('confirmPassword')" placeholder="Enter Your password">
+              <span class="material-icons pass_hide_icons" *ngIf="isVisible" (click)="showConfirmPass('show')">visibility</span>
+              <span class="material-icons pass_hide_icons" *ngIf="!isVisible" (click)="showConfirmPass('hide')">visibility_off</span>               
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark font-18">Phone Number</label>
+              <input type="text" class="form-control p-3" formControlName="phoneNumber" 
+              (keyup)="validateFormField('phoneNumber')" placeholder="Enter Your Phone Number">              
+            </div>
+            <div class="form-group mb-5" formGroupName="place">
+              <div class="row mx-0">
+                <div class="col-lg-6 pl-0 pr-2">
+                  <label class="font-500 text-dark font-18">State</label>
+                  <select class="form-control p-3" formControlName="state">
+                    <option>Madhya pradesh</option>
+                    <option>Rajasthan</option>
+                    <option>Delhi</option>
+                    <option>Maharashtra</option>
+                    <option>Tamil Nadu</option>
+                  </select>
+                </div>
+                <div class="col-lg-6 pr-0 pl-2">
+                  <label class="font-500 text-dark font-18">City</label>
+                  <select class="form-control p-3" formControlName="city">
+                    <option>Indore</option>
+                    <option>Ujjain</option>
+                    <option>Gwaliar</option>
+                    <option>Bhopal</option>
+                    <option>Khandwa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark font-18 mb-3">Do You Have GST Number?</label>
+              <div class="row mx-0">
+                <div class="form-check mr-3">
+                  <input class="form-check-input" type="radio" formControlName="GSTyesno" name="GSTyesno" id="gstyes" value="yes">
+                  <label class="form-check-label font-400 font-18" for="gstyes">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="GSTyesno" name="GSTyesno" id="gstno" value="no">
+                  <label class="form-check-label font-400 font-18" for="gstno">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark w-100 font-18">
+                If Yes Please Enter Your GST Certificate Number
+                And Upload GST Certificate
+              </label>
+              <div class="row mx-0">
+                <div class="col-lg-7 pl-0 pr-2">
+                  <input type="text" class="form-control p-3" formControlName="gstNumber" 
+                  (keyup)="validateFormField('gstNumber')" placeholder="Enter GST number">
+                </div>
+                <div class="col-lg-5 pr-0 pl-2">
+                  <button type="submit" class="btn btn-theme w-100 px-2 w-50 py-3 font-16">Upload GST Certificate
+                    <input type="file" class="input_type_file_btn_prfile"/>
+                  </button>
+                </div>
+              </div>              
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark w-100 font-18">
+                Enter Your Business PAN Card Number And Upload
+                Business PAN card
+              </label>
+              <div class="row mx-0">
+                <div class="col-lg-7 pl-0 pr-2">
+                  <input type="text" class="form-control p-3" formControlName="panNumber" 
+                  (keyup)="validateFormField('panNumber')" placeholder="Enter PAN number">
+                </div>
+                <div class="col-lg-5 pr-0 pl-2">
+                  <button type="submit" class="btn btn-theme w-100 px-2 w-50 py-3 font-16">Upload PAN Card
+                    <input type="file" class="input_type_file_btn_prfile"/>
+                  </button>
+                </div>
+              </div>              
+            </div>
+            <div class="form-group mb-5" >
+              <label class="font-500 text-dark font-18 mb-3">
+                Enter Average Monthy Stock Count You Want
+                To Share On Yaari
+              </label>
+              <div class="row mx-0">
+                <div class="form-check mr-3">
+                  <input class="form-check-input" type="radio" formControlName="LessMoreRadio" name="LessMoreRadio" id="less100" value="lessThan100">
+                  <label class="form-check-label font-400 font-18" for="less100">
+                    Less Than 100
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" formControlName="LessMoreRadio" name="LessMoreRadio" id="more100" value="moreThan100">
+                  <label class="form-check-label font-400 font-18" for="more100">
+                    More Than 100
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5" >
+              <label class="font-500 text-dark font-18 mb-3">
+                Select Among Different Price Range
+              </label>
+              <div class="row mx-0">
+                <div class="form-check mb-3 w-100">
+                  <input class="form-check-input" type="radio" formControlName="LessBetweeenRadio" name="LessBetweeenRadio" id="less250" value="lessThan250">
+                  <label class="form-check-label font-400 font-18" for="less250">
+                    Less than 250
+                  </label>
+                </div>
+                <div class="form-check mb-3 w-100">
+                  <input class="form-check-input" type="radio" formControlName="LessBetweeenRadio" name="LessBetweeenRadio" id="bet250500" value="between250To500">
+                  <label class="form-check-label font-400 font-18" for="bet250500">
+                    Between 250 to 500
+                  </label>
+                </div>
+                <div class="form-check w-100">
+                  <input class="form-check-input" type="radio" formControlName="LessBetweeenRadio" name="LessBetweeenRadio" id="bet500700" value="between500To700">
+                  <label class="form-check-label font-400 font-18" for="bet500700">
+                    Between 500 to 700
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <h4 class="font-700 mb-4 text-dark">
+                More Information
+              </h4>
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18 mb-3">Bank Name</label>
+                <select class="form-control p-3" formControlName="bankName">
+                  <option>--- select bank ---</option>
+                  <option *ngFor="let item of indianBanks()">{{item}}</option>
+                </select>
+              </div>
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18">IFSC Code</label>
+                <input type="text" class="form-control p-3" formControlName="ifsc" 
+                (keyup)="validateFormField('ifsc')" placeholder="Enter Bank IFSC Code">
+              </div>
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18">Pickup Address</label>
+                <textarea class="form-control p-3" placeholder="Enter Pickup Address" formControlName="pickupAddress" 
+                (keyup)="validateFormField('pickupAddress')" style="height:125px !important;"></textarea>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark font-18">Upload Cancelled Cheque</label>
+              <div class="d-inline-block w-100 position-relative">
+                <input type="file" class="form-control p-3" style="cursor: pointer;" formControlName="uploadCheck">
+                <span class="custom_input_file_btn text-light font-16">
+                  <span class="material-icons mr-2">add_a_photo</span>
+                  Upload Picture
+                </span>
+              </div>
+            </div>
+            <div class="d-inline-block text-center w-100 py-3">
+              <button type="submit" class="btn btn-theme px-5 w-50 py-3 font-18" [disabled]="!register.valid">Submit</button>
+            </div>
+            <div class="d-inline-block text-center w-100 py-3 mb-5">
+              <span class="text-dark font-16">
+                Already have an account?
+                <a href="/signin" class="text-link font-600 font-18">
+                  Sign in
+                </a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ -->

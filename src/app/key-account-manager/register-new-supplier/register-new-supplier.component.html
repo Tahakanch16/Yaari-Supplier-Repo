@@ -1,0 +1,122 @@
+
+<!-- Dashboard -->
+
+<!-- Image and text -->
+<app-sub-supplier-navbar></app-sub-supplier-navbar>
+
+<section class="dashboard_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="sing_in_sec_form">
+          <div class="main_title_dv d-inline-block py-5 w-100">
+            <h1 class="font-600 mb-4 text-dark title_main position-relative d-inline-block mat-display-2">
+              Register New Supplier
+            </h1>
+          </div>
+          <form [formGroup]="registerationForm">
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Supplier Name</label>
+              <input type="text" class="form-control p-3" formControlName="supplierName" 
+              (keyup)="validateFormField('supplierName')" placeholder="Enter Supplier Business Name">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Supplier Business Name</label>
+              <input type="text" class="form-control p-3" formControlName="supplierBussiness"
+              (keyup)="validateFormField('supplierBussiness')" placeholder="Enter Supplier Business Name">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Phone Number</label>
+              <input type="text" class="form-control p-3" formControlName="phoneNumber" 
+              (keyup)="validateFormField('phoneNumber')" placeholder="Enter Supplier Phone Number">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Alternate Contact Number</label>
+              <input type="text" class="form-control p-3" formControlName="alternativePhoneNumber" 
+              (keyup)="validateFormField('alternativePhoneNumber')" placeholder="Enter Alternate Supplier Phone Number">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark w-100 font-18">Email ID</label>
+              <input type="text" class="form-control p-3" formControlName="emailId" 
+              (keyup)="validateFormField('emailId')" splaceholder="Enter Supplier Email ID">
+            </div>
+            <div class="form-group mb-4 ">
+                  <label class="font-500 text-dark font-18">Password</label>
+                  <input [type]="passType" class="form-control p-3" formControlName="password" 
+                  (keyup)="validateFormField('password')" placeholder="Enter Your password">
+                  <span class="material-icons pass_hide_icons" *ngIf="showPassword" (click)="showPass('show')">visibility</span>
+                  <span class="material-icons pass_hide_icons" *ngIf="!showPassword" (click)="showPass('hide')">visibility_off</span>            
+                </div>
+                <div class="form-group mb-4">
+                  <label class="font-500 text-dark font-18">Confirm Password</label>
+                  <input [type]="cpassType" class="form-control p-3" formControlName="confirmPassword" 
+                  (keyup)="validateFormField('confirmPassword')" placeholder="Enter Your password">
+                  <span class="material-icons pass_hide_icons" *ngIf="isVisible" (click)="showConfirmPass('show')">visibility</span>
+                  <span class="material-icons pass_hide_icons" *ngIf="!isVisible" (click)="showConfirmPass('hide')">visibility_off</span>               
+                </div>
+                <div class="form-group mb-4" formGroupName="place">
+                  <label class="font-500 text-dark font-18">Address</label>
+                  <textarea class="form-control p-3" formControlName="address" placeholder="Enter Supplier Address" 
+                  (keyup)="validateFormField('address')"style="height:125px !important;"></textarea>
+                <!-- </div> -->
+                <!-- <div class="form-group mb-4"> -->
+                  <div class="row mx-0 mt-4 mb-4">
+                    <div class="col-lg-6 pl-0 pr-2">
+                      <label class="font-500 text-dark font-18">State</label>
+                      <select class="form-control p-3" formControlName="state">
+                        <option>Madhya Pradesh</option>
+                        <option>Rajasthan</option>
+                        <option>Delhi</option>
+                        <option>Maharashtra</option>
+                        <option>Tamil Nadu</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-6 pr-0 pl-2">
+                      <label class="font-500 text-dark font-18">City</label>
+                      <select class="form-control p-3" formControlName="city">
+                        <option>Indore</option>
+                        <option>Ujjain</option>
+                        <option>Gwaliar</option>
+                        <option>Bhopal</option>
+                        <option>Khandwa</option>
+                      </select>
+                    </div>
+                  </div>
+                <!-- </div> -->
+                
+                  <label class="font-500 text-dark font-18 mb-3">Pin Code</label>
+                  <input type="text" class="form-control p-3" formControlName="pincode" 
+                  (keyup)="validateFormField('pincode')"placeholder="Enter Supplier Pin Code">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">GST Number?</label>
+              <input type="text" class="form-control p-3" formControlName="gstNumber" 
+              (keyup)="validateFormField('gstNumber')" placeholder="Enter Supplier GST Number">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">PAN Number</label>
+              <input type="text" class="form-control p-3" formControlName="panNumber" 
+              (keyup)="validateFormField('panNumber')" placeholder="Enter Supplier PAN Number">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Type of Supply</label>
+              <select class="form-control p-3" formControlName="supplyType">
+                <option>Choose Supplier</option>
+                <option *ngFor="let item of allSupplyType()">{{item}}</option>
+              </select>
+            </div>
+            <!-- //////// -->
+            <div class="d-inline-block text-center w-100 py-3 mt-3 mb-5">
+              <button type="submit" [disabled]="!register.valid" class="btn btn-theme px-5 w-50 py-3 font-18">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard End -->

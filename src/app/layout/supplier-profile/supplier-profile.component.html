@@ -1,0 +1,109 @@
+<!-- Image and text -->
+<app-supplier-navbar></app-supplier-navbar>
+
+<section class="sing_in_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidebar-upload-image></app-sidebar-upload-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="sing_in_sec_form">
+          <div class="main_title_dv d-inline-block py-5 w-100">
+            <h1 class="font-600 mb-4 text-dark title_main position-relative d-inline-block">
+              Your Profile
+            </h1>
+            <button mat-raised-button *ngIf="hide" class="d-flex text-link font-20 my-3 font-600 float-right" (click)="editDetails()">
+              <span class="material-icons mr-2">edit</span>
+              Edit Profile
+            </button>
+          </div>
+          <form class="profile_edit_pg_form" [formGroup]="profileForm">
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Business Name</label>
+              <input type="text" (blur)="validateFormField('businessName')" class="form-control p-3" formControlName="businessName" [readonly]="hide">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Supplier Name</label>
+              <input type="text" (blur)="validateFormField('supplierName')" class="form-control p-3" formControlName="supplierName" [readonly]="hide">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Phone Number</label>
+              <input type="number" (blur)="validateFormField('mobile')" class="form-control p-3" formControlName="mobile" [readonly]="hide">              
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark w-100 font-18">Email ID</label>
+              <input type="email"  (blur)="validateFormField('email')" class="form-control p-3" formControlName="email"  [readonly]="hide">
+            </div> 
+            <div class="form-group mb-5">
+              <label class="font-500 text-dark font-18">Pickup Address</label>
+              <textarea class="form-control p-3" placeholder="Enter Pickup Address" [readonly]="hide" formControlName="pickupAddress" 
+              (blur)="validateFormField('pickupAddress')" style="height:125px !important;"></textarea>
+          </div>
+          <div class="form-group mb-5">
+              <label class="font-500 text-dark w-100 font-18">Pincode</label>
+              <div class="row mx-0">
+                <div class="col-lg-7 pl-0 pr-2">
+                  <input type="text" class="form-control p-3" [readonly]="hide" formControlName="pincode" 
+                  (blur)="validateFormField('pincode')" placeholder="Enter pincode">
+                </div>
+                <div class="col-lg-5 pr-0 pl-2">
+                  <button type="submit" (click)="locatePlace()"
+                   [disabled]="hide" class="btn btn-theme w-100 px-2 w-50 py-3 font-16">Verify Pincode</button>
+                </div>
+              </div>              
+          </div>
+          <div class="form-group mb-5">
+            <div class="row mx-0">
+              <div class="col-lg-6 pl-0 pr-2">
+                <label class="font-500 text-dark font-18">State</label>
+                <input type="text" (blur)="validateFormField('state')" class="form-control p-3" readonly formControlName="state"> 
+              </div>
+              <div class="col-lg-6 pr-0 pl-2">
+                <label class="font-500 text-dark font-18">City</label>
+                <input type="text" (blur)="validateFormField('city')" class="form-control p-3" readonly formControlName="city">
+              </div>
+            </div>
+          </div>             
+            <!-- <div class="form-group mb-4">
+              <label class="font-500 text-dark w-100 font-18">Category</label>
+              <input type="text" class="form-control p-3" readonly>             
+            </div> -->
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">GST Number</label>
+              <input type="text" (blur)="validateFormField('gstNumber')" class="form-control p-3" formControlName="gstNumber" readonly>
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">Pan Number</label>
+              <input type="text" (blur)="validateFormField('panNumber')" class="form-control p-3" formControlName="panNumber" readonly>
+            </div>
+            <div class="form-group mb-5">
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18 mb-3">Bank Name</label>
+                <select class="form-control p-3"  formControlName="bankName">
+                  <option [disabled]="hide" *ngFor="let item of indianBanks()" [value]="item">{{item}}</option>
+                </select>
+              </div>
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18">Account Number</label>
+                <input type="text" class="form-control p-3" [readonly]="hide" formControlName="accno" 
+                (blur)="validateFormField('accno')" placeholder="Enter Account Number">
+              </div>
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18">IFSC Code</label>
+                <input type="text" class="form-control p-3"  [readonly]="hide" formControlName="ifsc" 
+                (blur)="validateFormField('ifsc')" placeholder="Enter Bank IFSC Code">
+              </div>
+            </div>
+            <!-- //////// -->
+            <div class="d-inline-block text-center w-100 py-3 mb-4">
+              <button type="submit" [disabled]="!profileForm.valid" (click)="updateSupplierInfo()" *ngIf="!hide"class="btn btn-theme px-5 w-50 py-3 font-18">Submit</button>
+            </div> 
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

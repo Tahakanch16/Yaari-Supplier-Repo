@@ -1,0 +1,63 @@
+
+<!-- Image and text -->
+<app-sub-supplier-navbar></app-sub-supplier-navbar>
+
+<section class="dashboard_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="dash_content_sec py-5">
+          <div class="row mx-0 pt-5">
+            <div class="col-lg-12 my-3 text-center">
+              <a routerLink="/key_account_manager_home/register_new_supplier" class="d-flex btn-theme w-100 py-4 font-20 font-500 text-center text-decoration-none justify-content-center">
+                <span class="material-icons dash_icons mr-2">assignment_turned_in</span>
+                Register New Supplier
+              </a>
+            </div>
+            <!-- <div class="col-lg-12 my-3 text-center dashboard_key_acc_mang_colpse">
+              <a class="nav-links d-flex btn-theme w-100 py-4 font-20 font-500 text-center text-decoration-none justify-content-center collapsed" data-toggle="collapse" href="#collapseExample001" role="button" aria-expanded="false" aria-controls="collapseExample001">
+                <span class="material-icons dash_icons mr-2">dashboard</span>
+                Dashboard
+                <span class="material-icons ml-1">expand_more</span>
+              </a>                    
+              <div class="collapse" id="collapseExample001">
+                <div class="card card-body p-3" style="background: #f3f3f3;">
+                  <a href="view_edit_supp_detail.html" class="font-18 font-500 d-block">
+                    View/Edit Supplier Details
+                  </a>
+                  <a href="view_edit_supp_sales_detail.html" class="font-18 font-500 d-block">
+                    View Supplier Sales Details
+                  </a>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="col-lg-12 my-3 text-center dashboard_key_acc_mang_colpse">
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                  <mat-panel-title class="nav-links text-primary font-400 font-18">
+                    <span class="material-icons dash_icons mr-2">dashboard</span>
+                    Dashboard
+                  </mat-panel-title>
+                  </mat-expansion-panel-header>
+                    <div class="card card-body">
+                     <p><a routerLink="/dashboard/suppliers_list" class="text-primary font-16 font-400 d-block"> View/Edit Supplier Details</a></p>
+                     
+                     <p><a routerLink="/dashboard/supplier_sales_list" class="text-primary font-16 font-400 d-block">View Supplier Sales Details</a></p>
+                    </div>
+                  </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard End -->

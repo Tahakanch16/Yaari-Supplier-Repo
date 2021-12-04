@@ -1,0 +1,117 @@
+
+<!-- Dashboard -->
+
+<!-- Image and text -->
+<app-sub-supplier-navbar></app-sub-supplier-navbar>
+
+<section class="dashboard_sec">
+  <div class="container-fluid ">
+    <div class="row mx-0">
+      <div class="col-lg-12">
+        <div class="main_title_dv d-inline-block pt-5 pb-4 w-100 px-0">
+          <h1 *ngIf="view" class="font-700 mb-4 text-dark w-75 title_main position-relative d-inline-block float-left mat-display-2">
+            View Supplier Details
+          </h1>
+          <h1 *ngIf="!view" class="font-700 mb-4 text-dark w-75 title_main position-relative d-inline-block float-left mat-display-2">
+            Edit Supplier Details
+          </h1>
+        </div>
+      </div>
+      <div class="col-lg-12 mt-4">
+        <div class="view_edit_supp_detail_al_edir_main_dv position-relative">
+          <form class="w-75 row mx-0">
+            <div class="form-group col-md-6 mb-4">
+              <label class="font-500 text-dark font-18">Supplier ID</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier ID" readonly>
+            </div>
+            <div class="form-group col-md-6 mb-4">
+              <label class="font-500 text-dark font-18">Supplier Name</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier Name" [readonly]="view">
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18">Supplier Business Name</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier Business Name" [readonly]="view">
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18">Phone Number</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier Phone Number" [readonly]="view">
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18">Alternate Contact Number</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Alternate Supplier Phone Number" [readonly]="view">
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark w-100 font-18">Email ID</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier Email ID" [readonly]="view">
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18">Address</label>
+              <textarea class="form-control p-3" placeholder="Enter Supplier Address" style="height:125px !important;" [readonly]="view">                
+              </textarea>
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <div class="row mx-0">
+                <div class="col-lg-6 pl-0 pr-2">
+                  <label class="font-500 text-dark font-18">State</label>
+                  <select class="form-control p-3" readonly>
+                    <option>Madhya Pradesh</option>
+                    <option>Rajasthan</option>
+                    <option>Delhi</option>
+                    <option>Maharashtra</option>
+                    <option>Tamil Nadu</option>
+                  </select>
+                </div>
+                <div class="col-lg-6 pr-0 pl-2">
+                  <label class="font-500 text-dark font-18">City</label>
+                  <select class="form-control p-3" readonly>
+                    <option>Indore</option>
+                    <option>Ujjain</option>
+                    <option>Gwaliar</option>
+                    <option>Bhopal</option>
+                    <option>Khandwa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18 mb-3">Pin Code</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier Pin Code" [readonly]="view">
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18 mb-3">GST Number?</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier GST Number" readonly>
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18 mb-3">PAN Number</label>
+              <input type="text" class="form-control p-3" placeholder="Enter Supplier PAN Number" readonly>
+            </div>
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18">Type of Supply</label>
+              <select class="form-control p-3" readonly>
+                <option>Choose Supplier</option>
+                <option>Stitched/Ready Made</option>
+                <option>Unstitched</option>
+                <option>Undergarments</option>
+                <option>Kids Wear</option>
+              </select>
+            </div>            
+            <div class="form-group mb-4 col-md-12">
+              <label class="font-500 text-dark font-18">Write a Note</label>
+              <textarea class="form-control p-3" placeholder="Write a detailed email to admin to change the details of supplier" style="height:125px !important;" [readonly]="view">                
+              </textarea>
+            </div>
+            <!-- //////// -->
+            <div class="d-inline-block text-center w-100 py-3 mt-3 mb-5">
+              <button type="submit" *ngIf="!view" class="btn btn-theme px-5 w-50 py-3 font-18">Submit</button>
+            </div>
+          </form>
+        </div>
+        <a (click)="editDetails()" class="btn-theme edit_floating_btn_on_det">
+          <span class="material-icons">border_color</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard End -->

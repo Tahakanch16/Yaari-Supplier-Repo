@@ -1,0 +1,48 @@
+
+<!-- Sign IN -->
+
+<!-- Image and text -->
+<app-navbar></app-navbar>
+
+<section class="sing_in_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="sing_in_sec_form">
+          <div class="main_title_dv d-inline-block py-5 w-100">
+            <h3 class="font-600 mb-4 text-dark title_main position-relative d-inline-block mat-display-1">
+              Choose Your Profile
+            </h3>
+          </div>
+          <form [formGroup]="profile">
+            <div class="form-group mb-4 mt-5">              
+              <label class="font-500 text-dark w-100 font-18">Select Profile</label>
+              <div class="row mx-0">
+                <div class="col-lg-8 pl-0 pr-2">
+                  <select class="form-control p-3 font-18" formControlName="myprofile">
+                    <option>Select Profile</option>
+                    <option>Customer Support Team</option>
+                    <option>Quality Auditor</option>
+                    <option>Key Account Manager</option>
+                    <option>Catalogue Manager</option>
+                    <option>Logistics Manager</option>
+                  </select>
+                </div>
+                <div class="col-lg-4 pr-0 pl-2">
+                  <button mat-raised-button (click)="selectProfile()" class="btn btn-theme w-100 px-2 w-50 py-2 font-18">
+                    Login
+                  </button>
+                </div>
+              </div>    
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sign IN End -->

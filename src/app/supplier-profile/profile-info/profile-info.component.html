@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- logo -->
+    <link rel="icon" type="image/png" href="images/fav_icon.png"/>
+
+    <title>Yaari Supplier</title>
+
+    <!-- Material Icons -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
+
+    <!-- Style CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+  </head>
+<body>
+
+<!-- Sign IN -->
+
+<!-- Image and text -->
+<app-supplier-navbar></app-supplier-navbar>
+
+<section class="sing_in_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidebar-upload-image></app-sidebar-upload-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="sing_in_sec_form">
+          <div class="main_title_dv d-inline-block py-5 w-100">
+            <h1 class="font-600 mb-4 text-dark title_main position-relative d-inline-block">
+              Your Profile
+            </h1>
+            <button mat-raised-button class="d-flex text-link font-20 my-3 font-600 float-right" (click)="editDetails()">
+              <span class="material-icons mr-2">edit</span>
+              Edit Profile
+              <!-- ------ (Note) ------
+              On click edit btn the input att readonly have to be remove
+              and on bottom side the commented submit button has to be visible. -->
+            </button>
+          </div>
+          <form class="profile_edit_pg_form">
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Business Name</label>
+              <input type="text" class="form-control p-3" [readonly]="hide">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18">Phone Number</label>
+              <input type="number" class="form-control p-3" [readonly]="hide">              
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark w-100 font-18">Email ID</label>
+              <input type="email" class="form-control p-3"  [readonly]="hide">
+            </div>              
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark w-100 font-18">Category</label>
+              <input type="text" class="form-control p-3" readonly>             
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">GST Number</label>
+              <input type="text" class="form-control p-3" readonly>
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">Pan Number</label>
+              <input type="text" class="form-control p-3" readonly>
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">Bank Name</label>
+              <input type="text" class="form-control p-3" [readonly]="hide">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">Account Number</label>
+              <input type="number" class="form-control p-3"[readonly]="hide">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18 mb-3">IFSC Code</label>
+              <input type="text" class="form-control p-3" [readonly]="hide">
+            </div>
+            <!-- //////// -->
+            <div class="d-inline-block text-center w-100 py-3 mb-4">
+              <button type="submit" *ngIf="!hide"class="btn btn-theme px-5 w-50 py-3 font-18">Submit</button>
+            </div> 
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sign IN End -->
+
+
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- ////////// Owl Slider JS ////// -->
+<script src="assets/js/owl.carousel.min.js"></script>
+
+</html>

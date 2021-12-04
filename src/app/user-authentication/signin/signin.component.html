@@ -1,0 +1,65 @@
+
+<!-- Sign IN -->
+
+<app-navbar></app-navbar>
+
+<section class="sing_in_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="sing_in_sec_form">
+          <div class="main_title_dv d-inline-block py-5 w-100">
+            <h1 class="font-600 mb-4 text-dark title_main position-relative d-inline-block mat-display-3">
+              Sign In
+            </h1>
+          </div>
+          <form [formGroup]="loginForm" (submit)="supplierLogin()">
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18" for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control p-3" id="exampleInputEmail1" formControlName="email" 
+              (keyup)="validateFormField('email')" aria-describedby="emailHelp" placeholder="Enter Your Email ID">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-500 text-dark font-18" for="exampleInputPassword1">Password</label>
+              <input [type]="passType" class="form-control p-3" id="exampleInputPassword1" formControlName="password" 
+              (keyup)="validateFormField('password')" placeholder="Enter Your Password">
+              <span class="material-icons pass_hide_icons" *ngIf="showPassword" (click)="showPass('show')">visibility</span>
+              <span class="material-icons pass_hide_icons" *ngIf="!showPassword" (click)="showPass('hide')">visibility_off</span>            
+              <span class="text_danger" *ngIf="login.controls.password.touched && login.controls.password.invalid">Password should be upto 8 characters</span>
+            </div>
+            <div class="form-group mb-4 float-right">
+              <a class="text-link font-16 font-600" href="javaScript:void(0)">
+                Forgot Password?
+              </a>
+            </div>
+            <div class="d-inline-block text-center w-100 py-3">
+              <button type="submit" class="btn btn-theme px-5 w-50 py-3 font-18" [disabled]="!login.valid">
+                Sign In</button>
+            </div>
+            <div class="d-inline-block text-center w-100 py-3">
+              <span class="text-dark font-16">
+                Don't have an account?
+                <a href="" routerLink="/signup" class="text-link font-600 font-18">
+                  Register Now
+                </a>
+              </span>
+            </div>
+            <div class="d-inline-block text-center w-100 py-3">
+              <span class="text-dark font-16">
+                I am not a Supplier
+                <a href="" routerLink="/select_profile" class="text-link font-600 font-18">
+                  Select Profile
+                </a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

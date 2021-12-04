@@ -1,0 +1,253 @@
+
+  <app-navbar></app-navbar>
+  <section class="sing_in_sec">
+    <div class="container-fluid pl-0">
+      <div class="row mx-0">
+        <div class="col-lg-6 pl-0">
+            
+              <!-- <div [ngClass]="[ getImage ? 'login_img_sec' : 'sing_up_img_sec']"> -->
+              <div  class=" img_sec ">
+                  <img src="assets/images/sign_up_supp_img.png" class="side-img"/>
+                  <div class="main_title_dv">
+                  <!-- <h1 class="textOnImage mt-5 font-700 text-light title_main ">
+                      Let's Get Started
+                  </h1> -->
+                  </div>
+              </div>
+  
+        </div>
+        <div class="col-lg-6 mx-auto">
+          <div class="sing_in_sec_form">
+            <div class="main_title_dv d-inline-block py-5 w-100">
+              <h1 class="font-600 mb-4 text-dark title_main position-relative d-inline-block">
+                Register
+              </h1>
+            </div>
+  
+             <!-- personal details -->
+             <form [formGroup]="personalDetails" *ngIf="showPersonalModel" >
+              <h4 class="font-700 mb-4 text-dark">
+                  Give your Personal Details
+              </h4>
+  
+                <div class="form-group mb-5">
+                  <label class="font-500 text-dark font-18">Business Name</label>
+                  <input type="text" class="form-control p-3" formControlName="businessName" 
+                  (blur)="validateFormField('businessName')" placeholder="Enter Your Business Name">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group mb-5">
+                  <label class="font-500 text-dark font-18">Supplier Name</label>
+                  <input type="text" class="form-control p-3" formControlName="supplierName" 
+                  (blur)="validateFormField('supplierName')" placeholder="Enter Your Business Name">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group mb-5 ">
+                    <label class="font-500 text-dark font-18">Email</label>
+                    <input type="email" class="form-control p-3" formControlName="email" 
+                    (blur)="validateFormField('email')" placeholder="Enter Your email">
+                </div>
+                <div class="form-group mb-5 ">
+                  <label class="font-500 text-dark font-18">Password</label>
+                  <input type="password" class="form-control p-3" formControlName="password" 
+                  (blur)="validateFormField('password')" placeholder="Enter Your password">
+                </div>
+                <div class="form-group mb-5">
+                  <label class="font-500 text-dark font-18">Confirm Password</label>
+                  <input type="text" class="form-control p-3" formControlName="confirmPassword" 
+                  (blur)="validateFormField('confirmPassword')" placeholder="Enter Your password">
+                  <!-- <span class="material-icons pass_hide_icons" *ngIf="isVisible" (click)="showConfirmPass('show')">visibility</span>
+                  <span class="material-icons pass_hide_icons" *ngIf="!isVisible" (click)="showConfirmPass('hide')">visibility_off</span>                -->
+                </div>
+                <div class="form-group mb-5">
+                  <label class="font-500 text-dark font-18">Phone Number</label>
+                  <input type="text" class="form-control p-3" formControlName="mobile" 
+                  (blur)="validateFormField('phoneNumber')" placeholder="Enter Your Phone Number">              
+                </div>
+                <div class="d-inline-block text-center w-100 py-3">
+                  <button type="submit" class="btn btn-theme px-5 w-50 py-3 font-18" (click)="submitPersonalDetails()" [disabled]="!personalDetails.valid">Submit</button>
+                </div>
+                <div class="d-inline-block text-center w-100 py-3 mb-5">
+                  <span class="text-dark font-16">
+                    Already have an account?
+                    <a [routerLink]="['/login']" class="text-link font-600 font-18">
+                      Sign in
+                    </a>
+                  </span>
+                </div>
+            </form>
+  
+            <!-- pickup-address details -->
+            <form [formGroup]="pickupAddress" *ngIf="showPickupAddressModel" >
+              <h4 class="font-700 mb-4 text-dark">
+                  Give your Pick up address
+              </h4>
+              <div class="form-group mb-5">
+                  <label class="font-500 text-dark font-18">Pickup Address</label>
+                  <textarea class="form-control p-3" placeholder="Enter Pickup Address" formControlName="pickupAddress" 
+                  (blur)="validateFormField('pickupAddress')" style="height:125px !important;"></textarea>
+              </div>
+              <div class="form-group mb-5">
+                  <label class="font-500 text-dark w-100 font-18">Pincode</label>
+                  <div class="row mx-0">
+                    <div class="col-lg-7 pl-0 pr-2">
+                      <input type="text" class="form-control p-3" formControlName="pincode" 
+                      (blur)="validateFormField('pincode')" placeholder="Enter pincode">
+                    </div>
+                    <div class="col-lg-5 pr-0 pl-2">
+                      <button type="submit" (click)="locatePlace()" class="btn btn-theme w-100 px-2 w-50 py-3 font-16">Verify Pincode</button>
+                    </div>
+                  </div>              
+              </div>
+              <div class="form-group mb-5">
+                <div class="row mx-0">
+                  <div class="col-lg-6 pl-0 pr-2">
+                    <label class="font-500 text-dark font-18">State</label>
+                    <input type="text" class="form-control p-3" readonly formControlName="state"> 
+                  </div>
+                  <div class="col-lg-6 pr-0 pl-2">
+                    <label class="font-500 text-dark font-18">City</label>
+                    <input type="text"  class="form-control p-3" readonly formControlName="city">
+                  </div>
+                </div>
+              </div>
+              <!-- //////// -->
+              <div class="d-inline-block text-center w-100 py-3">
+                <button type="submit" (click)="submitPickupAddress()" class="btn btn-theme px-5 w-50 py-3 font-18" [disabled]="!pickupAddress.valid">Continue</button>
+              </div>
+              <div class="d-inline-block text-center w-100 py-3 mb-5">
+                <span class="text-dark font-16">
+                  Already have an account?
+                  <a [routerLink]="['/login']" class="text-link font-600 font-18">
+                    Sign in
+                  </a>
+                </span>
+              </div>
+            </form>
+  
+            <!-- business  details -->
+            <form [formGroup]="businessDetails" *ngIf="showBusinessModel" >
+              <h4 class="font-700 mb-4 text-dark">
+                  Give your Business details
+              </h4>
+              <div class="form-group mb-5">
+                <label class="font-500 text-dark font-18 mb-3">Do You Have GST Number?</label>
+                <div class="row mx-0">
+                  <div class="form-check mr-3">
+                    <input class="form-check-input" type="radio" (click)="haveGST()" formControlName="gst" name="gst" id="gstyes" value="yes">
+                    <label class="form-check-label font-400 font-18" for="gstyes">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" (click)="doNotHaveGST()" formControlName="gst" name="gst" id="gstno" value="no">
+                    <label class="form-check-label font-400 font-18" for="gstno">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>           
+                <!-- <div *ngIf="haveGSTNumber" class="form-group mb-5">
+                  <label class="font-500 text-dark w-100 font-18">
+                    If Yes Please Enter Your GST Certificate Number
+                    And Upload GST Certificate
+                  </label>
+                  <div class="row mx-0">
+                    <div class="col-lg-7 pl-0 pr-2">
+                      <input type="text" class="form-control p-3" formControlName="gstNumber" 
+                      (keyup)="validateFormField('gstNumber')" placeholder="Enter GST number">
+                    </div>
+                    <div class="col-lg-5 pr-0 pl-2">
+                        <div class="d-inline-block w-100 position-relative">
+                          <input type="file" class="form-control p-3" style="cursor: pointer;" formControlName="uploadGST">
+                          <span class="custom_input_file_btn text-light font-16">
+                            <span class="material-icons mr-2">add_a_photo</span>
+                            Upload Picture
+                          </span>
+                        </div>
+                    </div>
+                  </div>              
+                </div> -->
+                <div *ngIf="haveGSTNumber" class="form-group mb-5 ">
+                  <label class="font-500 text-dark font-18"> GST Certificate Number</label>
+                  <input type="text" class="form-control p-3" formControlName="gstNumber" 
+                  (blur)="validateFormField('gstNumber')" placeholder="Enter GST number">
+                </div>
+                <!-- <div class="form-group mb-5">
+                  <label class="font-500 text-dark w-100 font-18">
+                    Enter Your Business PAN Card Number And Upload
+                    Business PAN card
+                  </label>
+                  <div class="row mx-0">
+                    <div class="col-lg-7 pl-0 pr-2">
+                      <input type="text" class="form-control p-3" formControlName="panNumber" 
+                      (keyup)="validateFormField('panNumber')" placeholder="Enter PAN number">
+                    </div>
+                    <div class="col-lg-5 pr-0 pl-2">
+                        <div class="d-inline-block w-100 position-relative">
+                          <input type="file" class="form-control p-3" style="cursor: pointer;" formControlName="uploadPan">
+                          <span class="custom_input_file_btn text-light font-16">
+                            <span class="material-icons mr-2">add_a_photo</span>
+                            Upload Picture
+                          </span>
+                        </div>
+                    </div>
+                  </div>              
+                </div> -->
+                <div class="form-group mb-5 ">
+                  <label class="font-500 text-dark font-18"> PAN Card Number</label>
+                  <input type="text" class="form-control p-3" formControlName="panNumber" 
+                  (blur)="validateFormField('panNumber')" placeholder="Enter PAN number">
+                </div>
+                <div class="form-group mb-5">
+                  <div class="form-group mb-5">
+                    <label class="font-500 text-dark font-18 mb-3">Bank Name</label>
+                    <select class="form-control p-3" formControlName="bankName">
+                      <option *ngFor="let item of indianBanks()">{{item}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group mb-5">
+                    <label class="font-500 text-dark font-18">Account Number</label>
+                    <input type="text" class="form-control p-3" formControlName="accno" 
+                    (blur)="validateFormField('accno')" placeholder="Enter Account Number">
+                  </div>
+                  <div class="form-group mb-5">
+                    <label class="font-500 text-dark font-18">IFSC Code</label>
+                    <input type="text" class="form-control p-3" formControlName="ifsc" 
+                    (blur)="validateFormField('ifsc')" placeholder="Enter Bank IFSC Code">
+                  </div>
+                </div>
+                <!-- <div class="form-group mb-5">
+                  <label class="font-500 text-dark font-18">Upload Cancelled Cheque</label>
+                  <div class="d-inline-block w-100 position-relative">
+                    <input type="file" class="form-control p-3" style="cursor: pointer;" formControlName="uploadCheck">
+                    <span class="custom_input_file_btn text-light font-16">
+                      <span class="material-icons mr-2">add_a_photo</span>
+                      Upload Picture
+                    </span>
+                  </div>
+                </div> -->
+                <div class="d-inline-block text-center w-100 py-3">
+                  <button type="submit" class="btn btn-theme px-5 w-50 py-3 font-18" [disabled]="!businessDetails.valid" (click)="submitBusinessDetails()" >Continue</button>
+                </div>
+                <div class="d-inline-block text-center w-100 py-3 mb-5">
+                  <span class="text-dark font-16">
+                    Already have an account?
+                    <a [routerLink]="['/login']" class="text-link font-600 font-18">
+                      Sign in
+                    </a>
+                  </span>
+                </div>
+            </form>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sign UPEnd -->
+  
+
+<!-- Sign UPEnd -->

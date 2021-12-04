@@ -1,0 +1,54 @@
+
+<!-- Dashboard -->
+
+<!-- Image and text -->
+
+<app-supplier-navbar></app-supplier-navbar>
+
+<section class="dashboard_sec">
+  <div class="container-fluid pl-0">
+    <div class="row mx-0">
+      <div class="col-lg-6 pl-0">
+        <app-sidbar-image [imageAddress]="imageAddress" [heading]="heading"></app-sidbar-image>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="dash_content_sec py-5">
+          <div class="row mx-0 pt-5">
+            <div class="col-lg-10 mx-auto my-3 text-center">
+              <a routerLink="/dashboard/payments" class="d-flex btn-theme w-100 py-3 font-18 font-500 text-center text-decoration-none">
+                <span class="material-icons dash_icons mr-2">credit_card</span>
+                Payments
+              </a>
+            </div>
+            <div class="col-lg-10 mx-auto my-3 text-center">
+              <a routerLink="/dashboard/catalogue_status" class="d-flex btn-theme w-100 py-3 font-18 font-500 text-center text-decoration-none">
+                <span class="material-icons dash_icons mr-2">ballot</span>
+                Catalogue Status
+              </a>
+            </div>
+            <div class="col-lg-10 mx-auto my-3 text-center">
+              <a routerLink="/dashboard/rating_review" class="d-flex btn-theme w-100 py-3 font-18 font-500 text-center text-decoration-none">
+                <span class="material-icons dash_icons mr-2">reviews</span>
+                Ratings & Reviews
+              </a>
+            </div>
+            <div class="col-lg-10 mx-auto my-3 text-center">
+              <a routerLink="/dashboard/quality_scorecard" class="d-flex btn-theme w-100 py-3 font-18 font-500 text-center text-decoration-none">
+                <span class="material-icons dash_icons mr-2">task</span>
+                Quality Scorecard
+              </a>
+            </div>
+            <div class="col-lg-10 mx-auto my-3 text-center">
+              <a routerLink="/dashboard/exchange_return" class="d-flex btn-theme w-100 py-3 font-18 font-500 text-center text-decoration-none">
+                <span class="material-icons dash_icons mr-2">keyboard_return</span>
+                Exchange & Returns
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard End -->
